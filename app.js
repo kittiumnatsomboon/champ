@@ -6,6 +6,24 @@ var logger = require('morgan');
 var src = require('./src/index');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const mysql = require('mysql')
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'blogerdb'
+})
+
+connection.connect(function(error){
+    if(error) throw error;
+    console.log("Connection success");
+    
+})
+
+
+connection.end()
+
+
 
 var app = express();
 
